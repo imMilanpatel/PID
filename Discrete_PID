@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include<math.h>
+void main()
+{
+    int sp,esum=0,pv[100],err[100],vout[100];
+    int i,j,kd,ki,kp;
+    err[0]=0;
+    pv[0]=0;
+    printf("Enter the values of Kp,ki,kd");
+    scanf("%d %d %d",&kp,&ki,&kd);
+    printf("Enter the set point");
+    scanf("%d",&sp);
+    for(j=1;j<=5;j++)
+    {
+        printf("Enter the value of pv[%d]",j);
+        scanf("%d",&pv[j]);
+    }
+    for(i=1;i<=5;i++)
+    {
+        err[i]=sp-pv[i-1];
+        esum=esum+err[i];
+        vout[i]=((kp*err[i])+(kd*kp*(err[i]-err[i-1]))+(kp*ki*esum));
+        printf("i=%d,vout=%d,pv=%d \n",i,vout[i],pv[i],err[i]);
+    }
+}
