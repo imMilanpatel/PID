@@ -1,0 +1,18 @@
+% MATLAB code for Finding Ultimate Gain(Ku) and Ultimate Period(Pu).
+
+%These parameters are used in for Zeigler Nichols tuning of a PID Controller.
+
+%Using Rootlocus you can find the Ku and using Bode Plot you can find the Pu.
+
+global time
+num1=[5.85];
+den1=[24 1];
+num2=[-0.5 1];
+den2=[0.5 1];
+num=conv(num1,num2);
+den=conv(den1,den2);
+system=tf(num,den);
+figure(1);
+rlocus(system);
+figure(2);
+bode(system);
