@@ -1,3 +1,5 @@
+/* Discrete PID controller for a First order system using C */
+
 #include <stdio.h>
 #include<math.h>
 void main()
